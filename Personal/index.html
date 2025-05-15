@@ -6,8 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>黃書俊個人簡介</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
 </head>
 
 <body>
@@ -35,11 +33,6 @@
             <button onclick="scrollToTop()">Top</button>
           </div>
       </div>
-    </div>
-
-    <div class="calendar-section">
-      <h2>行事曆</h2>
-      <div id="calendar"></div>
     </div>
 
     <div id="about" class="about-section">
@@ -82,20 +75,5 @@
   <script src="script.js"></script>
 
 </body>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    var calendarEl = document.getElementById('calendar');
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-      initialView: 'dayGridMonth',
-      events: [
-        { title: 'meeting', start: new Date() },
-        { title: '專題截止', start: new Date() }
-      ]
-    });
-    calendar.render();
-  });
-</script>
-
 
 </html>

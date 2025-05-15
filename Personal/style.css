@@ -12,7 +12,7 @@ body {
 /* ===== 外框容器 ===== */
 .main-container {
   width: 100%;                 /* 滿版寬度允許拉伸 */
-  max-width: 1000px;            /* 最大寬度限制（你可調整為 800px, 960px 等） */
+  max-width: 1000px;           /* 最大寬度限制（你可調整為 800px, 960px 等） */
   margin: 0 auto;              /* 水平置中 */
   padding: 30px 40px;          /* 內邊距（可視情況微調） */
   background-color: white;
@@ -100,6 +100,7 @@ h3 {
   margin: 0 auto;
   padding-top: 10px;
   height: auto;
+  overflow-x: auto;
   min-height: 500px;  /* ✅ 加上這行讓它撐開 */
 }
 
