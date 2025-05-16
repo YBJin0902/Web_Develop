@@ -1,209 +1,229 @@
-/* ===== Reset & 全域設定 ===== */
+/* Reset & 基本設定 */
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 body {
-  margin: 0;
-  font-family: "Segoe UI", sans-serif;
+  overflow-x: hidden;
   background-color: #f4f4f4;
+  color: #222;
+  line-height: 1.6;
 }
 
-/* ===== 外框容器 ===== */
-.main-container {
-  width: 100%;                 /* 滿版寬度允許拉伸 */
-  max-width: 1000px;           /* 最大寬度限制（你可調整為 800px, 960px 等） */
-  margin: 0 auto;              /* 水平置中 */
-  padding: 30px 40px;          /* 內邊距（可視情況微調） */
-  background-color: white;
-  border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-}
-
-/* ===== 上半部資訊區塊（Sticky）===== */
-.top-section {
+.main-wrapper {
   display: flex;
-  align-items: flex-start;
-  gap: 40px;
-  flex-wrap: wrap;
-
-  position: sticky;
-  top: 0;
-  z-index: 999;
-  background-color: #ffffff;
-  padding: 10px 20px;
-  border-bottom: 2px solid #ddd;
+  height: 100vh;
 }
 
-/* ===== 照片樣式 ===== */
-.photo img {
-  width: 220px;
-  height: 220px;
-  object-fit: cover;
+/* 左側資訊欄 */
+.left-panel {
+  width: 20%;
+  background-color: #fff;
+  padding: 30px 20px;
+  border-right: 1px solid #e0e0e0;
+  overflow-y: auto;
+  text-align: center;
+}
+
+.left-panel .photo img {
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
-  border: 3px solid #ccc;
+  object-fit: cover;
+  margin-bottom: 20px;
+  border: 3px solid #0077cc;
 }
 
-/* ===== 右側資訊區塊 ===== */
-.info {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+.left-panel h1 {
+  font-size: 24px;
+  margin-bottom: 8px;
 }
 
-h1 {
-  margin: 0;
+.left-panel h3 {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 20px;
 }
 
-h2 {
-  margin: 1;
-}
-
-h3 {
-  margin: 0;
-}
-
-/* ===== 聯絡方式 ===== */
-.contact {
+.left-panel .contact {
   background-color: #eef6ff;
   padding: 10px 20px;
   border-left: 5px solid #0077cc;
   border-radius: 5px;
-
-  max-width: 900px;       /* ✅ 限制最大寬度 */
-  width: 100%;            /* ✅ 手機上可滿寬 */
 }
 
-.contact a {
-  display: block;
-  margin-bottom: 8px;
+.left-panel .contact h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #0077cc;
+  text-align: left;
+}
+
+.left-panel .contact a {
   color: #0077cc;
   text-decoration: none;
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  text-align: left;
 }
 
-.contact a:hover {
-  text-decoration: underline;
-}
-
-.about-section {
-  margin-top: 20px;
-  padding: 20px 20px;
+/* 右側內容欄 */
+.right-panel {
+  width: 85%;
+  padding: 40px;
+  overflow-y: auto;
   background-color: #f9f9f9;
-  border-left: 5px solid #4caf50;
-  border-radius: 8px;
-  line-height: 1.8;
 }
 
-.calendar-section {
-  max-width: 100%;
-  margin: 0 auto;
-  padding-top: 10px;
-  height: auto;
-  overflow-x: auto;
-  min-height: 500px;  /* ✅ 加上這行讓它撐開 */
+.right-panel .skill {
+  background-color: #eef6ff;
+  padding: 10px 20px;
+  border-left: 5px solid #b93edf;
+  border-radius: 5px;
 }
 
-
-/* ===== 響應式支援 ===== */
-@media (max-width: 768px) {
-  .top-section {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    position: static; /* 手機版不 sticky */
-    border-bottom: none;
-  }
-
-  .photo img {
-    margin-bottom: 20px;
-  }
-
-  .info {
-    align-items: center;
-  }
-
-  .about-section {
-    text-align: center;
-  }
+.block details summary {
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 15px;
+  margin-bottom: 8px;
+  padding-left: 8px;
+  position: relative;
 }
 
-/* ========== Sticky 縮起動畫樣式 ========== */
-.top-section.shrink {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 220px;
-  height: 200vh;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 20px 10px;
-  gap: 10px;
-  transition: all 0.5s ease;
-  box-shadow: 4px 0 12px rgba(0, 0, 0, 0.1);
-  border-right: 1px solid #ddd;
-  border-bottom: none;
-  z-index: 1000;
+/* 展開箭頭樣式更統一 */
+.block details summary::marker {
+  font-size: 14px;
 }
 
-.top-section.shrink .info {
-  align-items: center;
-  text-align: center;
+/* 列表樣式 */
+.block details ul {
+  padding-left: 24px; /* 縮排 */
+  margin-bottom: 10px;
+  list-style-type: disc;
 }
 
-
-.top-section.shrink .photo img {
-  width: 100px;
-  height: 100px;
+/* 每一列技能項目 */
+.block details ul li {
+  margin-bottom: 6px;
+  font-size: 15px;
+  color: #333;
+  line-height: 1.5;
 }
 
-.top-section.shrink .info h1 {
-  font-size: 18px;
-}
-
-.top-section.shrink .info h3,
-.top-section.shrink .contact {
-  display: none;
-}
-
-/* 縮起時 main-container 右偏讓出空間 */
-body.shrunk .main-container {
-  margin-left: 220px;
-  margin-right: auto;
-  max-width: calc(100% - 280px);
-  transition: margin 0.5s ease;
-}
-
-.calendar-section,
-.about-section {
-  max-width: 1300px;
-  margin: 0 auto;
-}
-
-
-/* 縮起時才顯示按鈕 */
-.side-buttons {
-  display: none;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 20px;
-}
-
-.top-section.shrink .side-buttons {
-  display: flex;
-}
-
-.side-buttons button {
+/* 可選：展開區塊內再加陰影或內邊距 */
+.block details[open] {
+  background-color: #f7f9fc;
   padding: 8px 12px;
+  border-radius: 8px;
+  border-left: 4px solid #7f04a5; /* 紫色邊條 */
+}
+
+.right-panel .about {
+  background-color: #eef6ff;
+  padding: 10px 20px;
+  border-left: 5px solid #e6307c;
+  border-radius: 5px;
+}
+
+.block {
+  margin-bottom: 40px;
+  background: #fff;
+  padding: 25px 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.block h2 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.block h3 {
+  font-size: 18px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+.block ul li {
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+
+.block details summary {
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+/* 漂浮按鈕樣式 */
+.floating-menu {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-end;
+}
+
+.fab {
   background-color: #0077cc;
   color: white;
   border: none;
-  border-radius: 6px;
+  border-radius: 50%;
+  padding: 16px 20px;
+  font-size: 22px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s;
+  margin-top: 10px;
 }
 
-.side-buttons button:hover {
+.fab:hover {
+  background-color: #005fa3;
+}
+
+.fab-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-end;
+  margin-bottom: 10px;
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.fab-buttons.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.fab-buttons button {
+  width: 120px; 
+  text-align: middle;
+  padding: 10px 16px;
+  border: none;
+  background-color: #0077cc;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 17px;
+  transition: background-color 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.fab-buttons button:hover {
   background-color: #005fa3;
 }
