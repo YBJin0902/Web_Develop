@@ -4,7 +4,10 @@ function scrollToSection(id) {
 }
 
 function scrollToTop() {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  const content = document.querySelector('.right-panel');
+  if (content) {
+    content.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 }
 
 function toggleFloatingMenu() {

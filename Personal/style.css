@@ -131,6 +131,20 @@ body {
   border-radius: 5px;
 }
 
+.right-panel .about ul {
+  padding-left: 24px; /* 縮排 */
+  margin-bottom: 10px;
+  list-style-type: disc;
+}
+
+/* 每一列技能項目 */
+.right-panel .about ul li {
+  margin-bottom: 6px;
+  font-size: 15px;
+  color: #333;
+  line-height: 1.5;
+}
+
 .block {
   margin-bottom: 40px;
   background: #fff;
@@ -162,6 +176,20 @@ body {
   cursor: pointer;
   margin-bottom: 10px;
   font-size: 16px;
+}
+
+.temp {
+  background-color: #eef6ff;
+  padding: 10px 20px;
+  border-left: 5px solid #ee5425ea;
+  border-radius: 5px;
+}
+
+.Note {
+  background-color: #eef6ff;
+  padding: 10px 20px;
+  border-left: 5px solid #14c50eea;
+  border-radius: 5px;
 }
 
 /* 漂浮按鈕樣式 */
