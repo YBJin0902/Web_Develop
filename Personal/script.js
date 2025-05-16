@@ -5,9 +5,15 @@ function showMessage() {
 // top-section 動畫縮小控制
 window.addEventListener('scroll', function () {
   const topSection = document.querySelector('.top-section');
-  if (window.scrollY > 100) {
-    topSection.classList.add('shrink');
-    document.body.classList.add('shrunk');
+  
+  if (window.innerWidth > 700) {
+    if (window.scrollY > 200) {
+      topSection.classList.add('shrink');
+      document.body.classList.add('shrunk');
+    } else {
+      topSection.classList.remove('shrink');
+      document.body.classList.remove('shrunk');
+    }
   } else {
     topSection.classList.remove('shrink');
     document.body.classList.remove('shrunk');
