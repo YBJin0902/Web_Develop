@@ -96,12 +96,55 @@ body {
   position: relative;
 }
 
-.right-panel .message {
+.message {
   background-color: #ffffff;
-  padding: 10px 20px;
-  border-left: 5px solid #b93edf;
-  border-radius: 5px;
+  border-left: 5px solid #2d34f2;
+  padding: 30px 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
 }
+
+.message h2 {
+  font-size: 20px;
+  color: #0077cc;
+  margin-bottom: 20px;
+}
+
+.message textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 12px 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  resize: vertical;
+  margin-bottom: 15px;
+  font-family: inherit;
+}
+
+.message button {
+  padding: 10px 20px;
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+
+.message button:hover {
+  background-color: #005fa3;
+}
+
+.message #formStatus {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #333;
+  text-align: center;
+}
+
 
 /* 展開箭頭樣式更統一 */
 .block details summary::marker {
@@ -188,6 +231,7 @@ body {
 .photo-gallery {
   padding: 25px 30px;
   background-color: #ffffff;
+  border-left: 5px solid #652800;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
   margin-bottom: 40px;

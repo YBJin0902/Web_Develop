@@ -114,7 +114,7 @@
       </section>
 
       <section id="gallery" class="block photo-gallery">
-        <h2>作品照片</h2>
+        <h2>實驗室生活小記</h2>
         <div class="gallery-grid">
           <img src="images/photo1.jpg" alt="" onclick="openLightbox(this.src)"/>
           <img src="images/photo2.jpg" alt="" onclick="openLightbox(this.src)"/>
@@ -130,13 +130,14 @@
       </section>
 
       <section class="message block">
-        <h2>有急事找我~</h2>
-         <form id="discordForm">
-            <textarea id="userMessage" required></textarea>
-            <button type="submit">送出留言</button>
-          </form>
-          <p id="statusMsg"></p>
+        <h2>有急事找我？請留言：</h2>
+        <form id="discordForm">
+          <textarea id="userMessage" name="message" placeholder="請輸入訊息..." required></textarea>
+          <button type="submit">送出留言</button>
+        </form>
+        <p id="statusMsg"></p>
       </section>
+
 
     </main>
   </div>
