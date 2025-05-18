@@ -9,7 +9,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const app = express();
-const PORT = 907;
+const PORT = 507;
 
 const WEBHOOK_URL = 'https://discord.com/api/webhooks/1373326123240525925/Xyn0pOCuOVht13SNmCCokvwqKl8LKl5LY__5Yu4sjdz2aah42DB-EDZYolr5LEZiZWW7';
 
