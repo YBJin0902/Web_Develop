@@ -1,4 +1,4 @@
-/* Reset & 基本設定 */
+/* Web body section */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -18,7 +18,7 @@ body {
   height: 100vh;
 }
 
-/* 左側資訊欄 */
+/* Left section */
 .left-panel {
   width: 20%;
   background-color: #fff;
@@ -28,6 +28,7 @@ body {
   text-align: center;
 }
 
+/* Left myself img */
 .left-panel .photo img {
   width: 150px;
   height: 150px;
@@ -48,6 +49,7 @@ body {
   margin-bottom: 20px;
 }
 
+/* Left contact information section */
 .left-panel .contact {
   background-color: #eef6ff;
   padding: 10px 20px;
@@ -71,7 +73,7 @@ body {
   text-align: left;
 }
 
-/* 右側內容欄 */
+/* Right section */
 .right-panel {
   width: 85%;
   padding: 40px;
@@ -79,23 +81,153 @@ body {
   /*background-color: #f9f9f9;*/
 }
 
-.right-panel .skill {
-  background-color: #ffffff;
+.right-panel .block {
+  margin-bottom: 40px;
+  background: #ffffff;
+  padding: 25px 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.right-panel .block h2 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.right-panel .block h3 {
+  font-size: 18px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+.right-panel .block ul li {
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+
+.right-panel .block details summary {
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+/* Right personal notebook section */
+.Note {
   padding: 10px 20px;
-  border-left: 5px solid #b93edf;
+  border-left: 5px solid #14c50eea;
   border-radius: 5px;
 }
 
-.block details summary {
-  font-weight: 600;
-  font-size: 16px;
-  cursor: pointer;
-  margin-top: 15px;
-  margin-bottom: 8px;
-  padding-left: 8px;
-  position: relative;
+.Note details[open] {
+  background-color: #fcfcfc;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border-left: 4px solid #006c4f; /* 紫色邊條 */
 }
 
+/* Right Lab life picture section */
+.photo-gallery {
+  padding: 25px 30px;
+  background-color: #ffffff;
+  border-left: 5px solid #652800;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  margin-bottom: 40px;
+}
+
+.photo-gallery h2 {
+  margin-bottom: 20px;
+  font-size: 22px;
+  color: #333;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 200px;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.05);
+}
+
+/* Right Lab life picture section */
+/* 大圖 lightbox 容器 */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  cursor: zoom-out;
+}
+
+.lightbox.show {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+  animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Right week schedule section */
+.schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  font-size: 14px;
+  text-align: center;
+  background-color: #fff;
+}
+
+.schedule-table th,
+.schedule-table td {
+  border: 1px solid #ccc;
+  padding: 12px;
+}
+
+.schedule-table th {
+  background-color: #0077cc;
+  color: white;
+}
+
+.schedule-table tr:nth-child(even) td {
+  background-color: #f5f5f5;
+}
+
+/* Right message box section */
 .message {
   background-color: #ffffff;
   border-left: 5px solid #2d34f2;
@@ -145,21 +277,44 @@ body {
   text-align: center;
 }
 
+/* Right personal temp section */
+.temp {
+  padding: 10px 20px;
+  border-left: 5px solid #ee5425ea;
+  border-radius: 5px;
+}
+
+/* Right skill inf section */
+.right-panel .skill {
+  padding: 10px 20px;
+  border-left: 5px solid #b93edf;
+  border-radius: 5px;
+}
 
 /* 展開箭頭樣式更統一 */
-.block details summary::marker {
+.skill details summary {
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 15px;
+  margin-bottom: 8px;
+  padding-left: 8px;
+  position: relative;
+}
+
+.skill details summary::marker {
   font-size: 14px;
 }
 
 /* 列表樣式 */
-.block details ul {
+.skill details ul {
   padding-left: 24px; /* 縮排 */
   margin-bottom: 10px;
   list-style-type: disc;
 }
 
 /* 每一列技能項目 */
-.block details ul li {
+.skill details ul li {
   margin-bottom: 6px;
   font-size: 15px;
   color: #333;
@@ -167,153 +322,20 @@ body {
 }
 
 /* 可選：展開區塊內再加陰影或內邊距 */
-.block details[open] {
+.skill details[open] {
   background-color: #fcfcfc;
   padding: 8px 12px;
   border-radius: 8px;
-  border-left: 4px solid #7f04a5; /* 紫色邊條 */
+  border-left: 4px solid #a310bc;
 }
 
-.right-panel .about {
-  background-color: #ffffff;
-  padding: 10px 20px;
-  border-left: 5px solid #e6307c;
-  border-radius: 5px;
-}
-
-.right-panel .about ul {
-  padding-left: 24px; /* 縮排 */
-  margin-bottom: 10px;
-  list-style-type: disc;
-}
-
-/* 每一列技能項目 */
-.right-panel .about ul li {
-  margin-bottom: 6px;
-  font-size: 15px;
-  color: #333;
-  line-height: 1.5;
-}
-
-.block {
-  margin-bottom: 40px;
-  background: #fff;
-  padding: 25px 30px;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-}
-
-.block h2 {
-  font-size: 22px;
-  margin-bottom: 15px;
-  color: #333;
-}
-
-.block h3 {
-  font-size: 18px;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  color: #444;
-}
-
-.block ul li {
-  margin-bottom: 8px;
-  font-size: 15px;
-}
-
-.block details summary {
-  font-weight: bold;
-  cursor: pointer;
-  margin-bottom: 10px;
-  font-size: 16px;
-}
-
-.photo-gallery {
-  padding: 25px 30px;
-  background-color: #ffffff;
-  border-left: 5px solid #652800;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  margin-bottom: 40px;
-}
-
-.photo-gallery h2 {
-  margin-bottom: 20px;
-  font-size: 22px;
-  color: #333;
-}
-
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 20px;
-}
-
-.gallery-grid img {
-  width: 100%;
-  height: 200px;
-  border-radius: 12px;
-  object-fit: cover;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
-}
-
-.gallery-grid img:hover {
-  transform: scale(1.05);
-}
-
-/* 大圖 lightbox 容器 */
-.lightbox {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-  cursor: zoom-out;
-}
-
-.lightbox.show {
-  display: flex;
-}
-
-.lightbox img {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
-  animation: zoomIn 0.3s ease;
-}
-
-@keyframes zoomIn {
-  from {
-    transform: scale(0.7);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-
-.temp {
-  background-color: #ffffff;
-  padding: 10px 20px;
-  border-left: 5px solid #ee5425ea;
-  border-radius: 5px;
-}
-
-.Note {
-  background-color: #ffffff;
+/* Right personal about section */
+.about {
   padding: 10px 20px;
   border-left: 5px solid #14c50eea;
   border-radius: 5px;
 }
+
 
 /* 漂浮按鈕樣式 */
 .floating-menu {
