@@ -31,7 +31,7 @@
 
     <main class="right-panel">
 
-      <section class="Note block">
+      <section id="Note" class="Note block">
         <h2>個人筆記專區</h2>
         
         <details><summary>HackMD</summary>
@@ -62,12 +62,7 @@
         </div>
       </section>
 
-      <section class="block">
-        <h2>行事曆</h2>
-        <div id="calendar" style="height: 600px;"></div>
-      </section>
-
-      <section class="message block">
+      <section id="message" class="message block">
         <h2>有急事找我？請留言：</h2>
         <form id="discordForm">
           <textarea id="userMessage" name="message" placeholder="請輸入訊息..." required></textarea>
@@ -120,7 +115,7 @@
           <ul>
             <li>2022 第 17 屆盛群盃創意大賽 創意產品設計組 銀牌</li>
             <li>2022 第 17 屆盛群盃創意大賽 欣宏電子_無線創意應用獎 第三名</li>
-            <li>>2022 第 17 屆盛群盃創意大賽 智慧電子產業創新應用獎 第三名</li>
+            <li>2022 第 17 屆盛群盃創意大賽 智慧電子產業創新應用獎 第三名</li>
             <li>2022 第四屆技職校院大手攜小手智慧創新應用獎 優選</li>
             <li>2022 黑客松:技職盃全國大賽 參賽</li>
             <li>2023 第二十屆育秀盃創意獎 佳作</li>
@@ -143,22 +138,21 @@
           </ul>
       </section>
 
-      
-
     </main>
   </div>
 
   <div class="floating-menu">
     <button class="fab" onclick="toggleFloatingMenu()">☰</button>
     <div class="fab-buttons" id="fabButtons">
+      <button onclick="scrollToSection('message')">message</button>
       <button onclick="scrollToSection('skill')">Skill</button>
       <button onclick="scrollToSection('about')">About Me</button>
       <button onclick="location.href='USBLab/USBLab_login.html'">USBLab</button>
+      <button onclick="location.href='schedule/schedule.html'">行程</button>
       <button onclick="scrollToTop()">Top</button>
     </div>
   </div>
-  
-  <script src="https://uicdn.toast.com/calendar/latest/toastui-calendar.min.js"></script>
+
   <script src="script.js"></script>
 </body>
 

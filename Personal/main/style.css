@@ -117,7 +117,7 @@ body {
 /* Right personal notebook section */
 .Note {
   padding: 10px 20px;
-  border-left: 5px solid #14c50eea;
+  border-left: 5px solid #8c00ffea;
   border-radius: 5px;
 }
 
@@ -129,13 +129,6 @@ body {
   margin-bottom: 8px;
   padding-left: 8px;
   position: relative;
-}
-
-.right-panel .message {
-  background-color: #ffffff;
-  padding: 10px 20px;
-  border-left: 5px solid #b93edf;
-  border-radius: 5px;
 }
 
 /* 展開箭頭樣式更統一 */
@@ -162,14 +155,14 @@ body {
   background-color: #fcfcfc;
   padding: 8px 12px;
   border-radius: 8px;
-  border-left: 4px solid #006c4f; /* 紫色邊條 */
+  border-left: 4px solid #990073; /* 紫色邊條 */
 }
 
 /* Right Lab life picture section */
 .photo-gallery {
   padding: 25px 30px;
   background-color: #ffffff;
-  border-left: 5px solid #652800;
+  border-left: 5px solid #9a1fffea;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
   margin-bottom: 40px;
@@ -238,70 +231,10 @@ body {
   }
 }
 
-/* Right week schedule section */
-/* === 每週行程區塊 === */
-.schedule {
-  background-color: #ffffff;
-  border-left: 5px solid #0651bb;
-  padding: 30px 25px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  margin-bottom: 40px;
-}
-
-.schedule h2 {
-  font-size: 22px;
-  color: #0077cc;
-  margin-bottom: 20px;
-}
-
-.schedule-table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  overflow: hidden;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-  background-color: #fff;
-}
-
-.schedule-table th,
-.schedule-table td {
-  padding: 14px;
-  font-size: 14px;
-  border-bottom: 1px solid #eee;
-}
-
-.schedule-table th {
-  background-color: #0077cc;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-size: 13px;
-}
-
-.schedule-table td {
-  color: #444;
-  background-color: #fafafa;
-  transition: transform 0.2s ease, background-color 0.2s ease;
-  cursor: pointer;
-}
-
-.schedule-table tr:nth-child(even) td {
-  background-color: #f0f4f8;
-}
-
-.schedule-table td:hover {
-  transform: scale(1.05);
-  background-color: #e0f2ff;
-  z-index: 1;
-  position: relative;
-}
-
 /* Right message box section */
 .message {
   background-color: #ffffff;
-  border-left: 5px solid #2d34f2;
+  border-left: 5px solid #d098fdea;
   padding: 30px 25px;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -351,14 +284,14 @@ body {
 /* Right personal temp section */
 .temp {
   padding: 10px 20px;
-  border-left: 5px solid #ee5425ea;
+  border-left: 5px solid #ff00ffea;
   border-radius: 5px;
 }
 
 /* Right skill inf section */
 .right-panel .skill {
   padding: 10px 20px;
-  border-left: 5px solid #b93edf;
+  border-left: 5px solid #ff6effea;
   border-radius: 5px;
 }
 
@@ -403,7 +336,7 @@ body {
 /* Right personal about section */
 .about {
   padding: 10px 20px;
-  border-left: 5px solid #ea2727ea;
+  border-left: 5px solid #ff0080ea;
   border-radius: 5px;
 }
 
@@ -481,7 +414,9 @@ body {
   }
 
   .left-panel {
-    display : none;
+    width : 100%;
+    padding: auto;
+    display : top;
   }
 
   .right-panel {

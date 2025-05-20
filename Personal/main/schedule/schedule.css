@@ -1,0 +1,132 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #161d27;
+  padding: 40px 20px;
+}
+
+h2 {
+  font-size: 25px;
+  color: #000000;
+  margin-bottom: 20px;
+}
+
+.schedule-container {
+  max-width: 1300px;
+  margin: auto;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  padding: 30px;
+}
+
+.week-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 16px;
+}
+
+.day-column {
+  background: #ebe9e9;
+  border-radius: 8px;
+  padding: 12px;
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid transparent;
+  transition: border 0.2s;
+  gap: 14px;
+}
+
+.day-column.today {
+  border: 2px solid #0077cc;
+  background-color: #eef7ff;
+}
+
+.day-title {
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 12px;
+  text-align: center;
+  color: #333;
+}
+
+.event {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  color: white;
+  padding: 8px 12px;
+  margin-bottom: 0;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  position: relative;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  text-align: left;
+}
+
+.event:hover {
+  background: linear-gradient(135deg, #1e90ff 0%, #00d4ff 100%);
+}
+
+.event-detail {
+  background: linear-gradient(135deg, #fe4fe4 0%, #d874ff 100%);
+  color: white;
+  padding: 20px;
+  border-radius: 6px;
+  margin-top: 1px;
+  font-size: 17px;
+  line-height: 1.2;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  animation: slideFadeIn 0.3s ease-out;
+  transform-origin: top;
+  text-align: left;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scaleY(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scaleY(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .schedule-container {
+    padding: 20px 12px;
+  }
+
+  .week-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    display: flex;
+    flex-direction: column;
+    overflow-x: auto;
+  }
+
+  .day-column {
+    min-height: auto;
+    border-radius: 10px;
+    padding: 16px;
+  }
+
+  .day-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .event {
+    font-size: 15px;
+  }
+
+  .event-detail {
+    font-size: 14px;
+  }
+}

@@ -8,6 +8,10 @@ function scrollToTop() {
   if (content) {
     content.scrollTo({ top: 0, behavior: 'smooth' });
   }
+
+  if (window.innerWidth < 768) {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 }
 
 function openLightbox(src) {
@@ -47,39 +51,4 @@ document.getElementById("discordForm").addEventListener("submit", async function
     status.innerText = "❌ 發送失敗：" + errText;
   }
 
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-  const MyCalendar = toastui.Calendar;
-
-  const calendar = new MyCalendar('#calendar', {
-    defaultView: 'week',
-    taskView: false,
-    scheduleView: ['time'],
-    useCreationPopup: false,
-    useDetailPopup: true,
-    week: {
-      startDayOfWeek: 1
-    },
-    calendars: [{ id: 'my', name: '我的行程', color: '#ffffff', bgColor: '#0077cc' }]
-  });
-
-  calendar.createSchedules([
-    {
-      id: '1',
-      calendarId: 'my',
-      title: '會議',
-      category: 'time',
-      start: '2025-05-19T09:00:00',
-      end: '2025-05-19T10:00:00'
-    },
-    {
-      id: '2',
-      calendarId: 'my',
-      title: '專題',
-      category: 'time',
-      start: '2025-05-20T14:00:00',
-      end: '2025-05-20T16:00:00'
-    }
-  ]);
 });
