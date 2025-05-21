@@ -405,6 +405,28 @@ body {
   background-color: #005fa3;
 }
 
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  background-color: #333;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.3s ease;
+  transform: translateY(20px);
+  z-index: 9999;
+}
+
+.toast.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+
 /*mobile device*/
 
 @media (max-width: 768px) {
