@@ -1,3 +1,12 @@
+window.addEventListener('DOMContentLoaded', () => {
+  const userId = sessionStorage.getItem('loggedInUserId') || "未登入";
+  const userWelcome = document.getElementById('userWelcome');
+  if (userWelcome) {
+    userWelcome.textContent = `歡迎，${userId}`;
+  }
+});
+
+
 function showSection(id) {
   const sections = document.querySelectorAll('.section');
   sections.forEach(sec => sec.classList.remove('active'));
@@ -50,3 +59,14 @@ function openPopup() {
 function closePopup() {
   document.getElementById("popupOverlay").style.display = "none";
 }
+
+function logout() {
+  // ✅ 清除登入資訊（依你目前的邏輯）
+  sessionStorage.removeItem('loggedInUserId');
+  localStorage.removeItem('loggedInUserId');
+
+  // ✅ 導回登入畫面
+  window.location.href = '../../index.html';
+}
+
+

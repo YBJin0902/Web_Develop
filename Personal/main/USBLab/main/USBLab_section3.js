@@ -4,7 +4,7 @@ function submitBorrow() {
   const date = document.getElementById("borrowDate").value;
   const time = document.getElementById("borrowTime").value;
 
-  const userId = window.loggedInUserId || "未登入";
+  const userId = window.id || "未登入";
 
   fetch('/api/notify-discord', {
         method: 'POST',
@@ -27,5 +27,3 @@ function submitBorrow() {
         alert("❌ 發送失敗：" + err.message);
     });
 }
-
-

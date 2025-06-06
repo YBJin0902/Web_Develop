@@ -48,6 +48,29 @@
         status.innerText = "❌ 伺服器錯誤";
       }
     }
+
+    fetch('/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, password })
+    })
+    .then(res => {
+      if (!res.ok) throw new Error('登入失敗');
+      return res.json();
+    })
+    .then(data => {
+      if (data.success) {
+        sessionStorage.setItem('loggedInUserId', data.username); // ✅ 存入登入者
+        window.location.href = '/USBLab/main/USBLab_home.html';
+      } else {
+        alert('登入失敗');
+      }
+    })
+    .catch(err => {
+      console.error('登入錯誤:', err);
+      alert('登入發生錯誤');
+    });
+
   </script>
 </body>
 </html>

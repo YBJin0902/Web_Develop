@@ -7,14 +7,6 @@ import fetch from 'node-fetch';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
-const db = await mysql.createConnection({
-  host: 'localhost',
-  port: 603,     
-  user: 'root',          
-  password: 'UsbLab507',  
-  database: 'USbLab'
-});
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
@@ -22,7 +14,7 @@ const app = express();
 const PORT = 507;
 
 const WEBHOOK_URL = 'https://discord.com/api/webhooks/1373326123240525925/Xyn0pOCuOVht13SNmCCokvwqKl8LKl5LY__5Yu4sjdz2aah42DB-EDZYolr5LEZiZWW7';
-const BORROW_DISCORD_WEBHOOK = "https://discord.com/api/webhooks/你的第二個Webhook網址";
+const BORROW_DISCORD_WEBHOOK = "https://discord.com/api/webhooks/1380490573768818700/57_x3vs4HkO7gBb5TO6Mhp5FqNewKWHWAddX1QbNP8IaayuBRU-KjXExjxdQBWi4BZQg";
 
 
 app.use(bodyParser.json());
@@ -33,6 +25,15 @@ app.use(session({
   saveUninitialized: false
 }));
 
+const db = await mysql.createConnection({
+  host: 'localhost',
+  port: 603,     
+  user: 'root',          
+  password: 'UsbLab507',  
+  database: 'USbLab'
+});
+
+console.log('✅ 資料庫連線成功');
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'main', 'index.html'));
@@ -61,18 +62,20 @@ app.post('/send-discord', async (req, res) => {
   }
 });
 
-import axios from 'axios';
-
 app.post('/api/notify-discord', async (req, res) => {
   const { machine, date, time, userId } = req.body;
 
-  const content = `📅 借用通知\n👤 使用者：${userId}\n🛠️ 機台：${machine} 雕刻機\n📆 日期：${date}\n⏰ 時間：${time}`;
+  const content = `借用通知\n使用者：${userId}\n機台：${machine} 雕刻機\n日期：${date}\n時間：${time}\n`;
 
   try {
-    await axios.post('https://discord.com/api/webhooks/你的Webhook網址', {
-      content: content
+    const response = await fetch(BORROW_DISCORD_WEBHOOK, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ content })
     });
+
     res.json({ success: true });
+
   } catch (err) {
     console.error('[DISCORD] 發送錯誤：', err.message);
     res.status(500).json({ error: '發送 Discord 失敗' });
@@ -91,7 +94,7 @@ app.post('/login', async (req, res) => {
 
     if (rows.length > 0) {
       req.session.user = rows[0].name;
-      res.send('✅ 登入成功');
+      res.json({ success: true, username: rows[0].name });
     } else {
       res.status(401).send('❌ 帳號或密碼錯誤');
     }
