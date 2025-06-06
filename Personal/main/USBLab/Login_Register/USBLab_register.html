@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>註冊 USBLab</title>
+  <link rel="stylesheet" href="USBLab_login.css" />
+</head>
+<body>
+  <div class="login-box">
+    <h2>註冊 USBLab</h2>
+    <input type="text" id="id" placeholder="學號" />
+    <input type="text" id="username" placeholder="帳號" />
+    <input type="password" id="password" placeholder="密碼" />
+    <button onclick="submitRegister()">註冊</button>
+    <p id="registerStatus"></p>
+    <p><a href="USBLab_login.html">已有帳號？前往登入</a></p>
+  </div>
+
+  <script>
+    async function submitRegister() {
+      const id = document.getElementById("id").value.trim();
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const status = document.getElementById("registerStatus");
+
+      if (!username || !password) {
+        status.innerText = "❗ 請輸入帳號與密碼";
+        return;
+      }
+
+      try {
+        const res = await fetch("/register", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ id, username, password })
+        });
+
+        const text = await res.text();
+        status.innerText = text;
+
+        if (res.ok) {
+          status.style.color = "green";
+          setTimeout(() => location.href = "USBLab_login.html", 1000);
+        } else {
+          status.style.color = "red";
+        }
+      } catch (err) {
+        console.error("Register error", err);
+        status.innerText = "❌ 伺服器錯誤";
+      }
+    }
+  </script>
+</body>
+</html>
